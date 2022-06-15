@@ -1,0 +1,1044 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the Progenetix oncogenomics resource">
+      
+      
+        <meta name="author" content="Michael Baudis">
+      
+      
+      <link rel="icon" href="../img/site-logo-topright.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.5">
+    
+    
+      
+        <title>Services & API - Progenetix Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.604 3.089A.75.75 0 0 1 4 3.75V8.5h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 1 1 0-1.5h.75V5.151l-.334.223a.75.75 0 0 1-.832-1.248l1.5-1a.75.75 0 0 1 .77-.037zM8.75 5.5a.75.75 0 0 0 0 1.5h11.5a.75.75 0 0 0 0-1.5H8.75zm0 6a.75.75 0 0 0 0 1.5h11.5a.75.75 0 0 0 0-1.5H8.75zm0 6a.75.75 0 0 0 0 1.5h11.5a.75.75 0 0 0 0-1.5H8.75zM5.5 15.75c0-.704-.271-1.286-.72-1.686a2.302 2.302 0 0 0-1.53-.564c-.535 0-1.094.178-1.53.565-.449.399-.72.982-.72 1.685a.75.75 0 0 0 1.5 0c0-.296.104-.464.217-.564A.805.805 0 0 1 3.25 15c.215 0 .406.072.533.185.113.101.217.268.217.565 0 .332-.069.48-.21.657-.092.113-.216.24-.403.419l-.147.14c-.152.144-.33.313-.52.504l-1.5 1.5a.75.75 0 0 0-.22.53v.25c0 .414.336.75.75.75H5A.75.75 0 0 0 5 19H3.31l.47-.47c.176-.176.333-.324.48-.465l.165-.156a5.98 5.98 0 0 0 .536-.566c.358-.447.539-.925.539-1.593z"/></svg>');}</style>
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#formats" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Progenetix Documentation" class="md-header__button md-logo" aria-label="Progenetix Documentation" data-md-component="logo">
+      
+  <img src="../img/site-logo-topright.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progenetix Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Services & API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/progenetix/progenetix-web" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    progenetix-web
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progenetix Documentation" class="md-nav__button md-logo" aria-label="Progenetix Documentation" data-md-component="logo">
+      
+  <img src="../img/site-logo-topright.png" alt="logo">
+
+    </a>
+    Progenetix Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/progenetix/progenetix-web" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    progenetix-web
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Documentation Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../news/" class="md-nav__link">
+        News & Changes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/" class="md-nav__link">
+        Pages & Forms
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Services & API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Services & API
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#formats" class="md-nav__link">
+    Formats
+  </a>
+  
+    <nav class="md-nav" aria-label="Formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servicespy-and-url-mapping" class="md-nav__link">
+    services.py and URL Mapping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-response-formats" class="md-nav__link">
+    API Response formats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-file-formats-pgxseg-segments" class="md-nav__link">
+    Data File Formats - .pgxseg Segments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-matrix-files" class="md-nav__link">
+    Data Matrix Files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-formats" class="md-nav__link">
+    Image Formats
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+    <nav class="md-nav" aria-label="Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cancer-genomics-publications-publications" class="md-nav__link">
+    Cancer Genomics Publications publications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cytoband-mapping-cytomapper" class="md-nav__link">
+    Cytoband Mapping cytomapper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gene-coordinates-genespans" class="md-nav__link">
+    Gene Coordinates genespans
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ontology-cross-mapping-ontologymaps" class="md-nav__link">
+    Ontology Cross-Mapping (ontologymaps)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-and-local-identifiers-ids" class="md-nav__link">
+    Public and Local Identifiers ids
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geographic-locations-cities-geolocations" class="md-nav__link">
+    Geographic Locations / Cities geolocations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/" class="md-nav__link">
+        Use Case Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classifications-and-ontologies/" class="md-nav__link">
+        Classifications, Ontologies & Standards
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publication-collection/" class="md-nav__link">
+        Publication Collection
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progenetix-data-review/" class="md-nav__link">
+        Data Review
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../beaconplus/" class="md-nav__link">
+        Beacon+ & bycon
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical-notes/" class="md-nav__link">
+        Technical Notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://progenetix.org" class="md-nav__link">
+        Progenetix Data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://info.baudisgroup.org" class="md-nav__link">
+        Baudisgroup @ UZH
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/progenetix/progenetix-web/edit/main/docs/services.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="progenetix-api-services">Progenetix API &amp; Services<a class="headerlink" href="#progenetix-api-services" title="Permanent link">&para;</a></h1>
+<p>The <em>bycon</em> environment provides a number of data services which make use of
+resources in the <em>Progenetix</em> environment.</p>
+<h2 id="formats">Formats<a class="headerlink" href="#formats" title="Permanent link">&para;</a></h2>
+<h3 id="servicespy-and-url-mapping"><code>services.py</code> and URL Mapping<a class="headerlink" href="#servicespy-and-url-mapping" title="Permanent link">&para;</a></h3>
+<p>The service URL format is <code>progenetix.org/services/__service-name__/?parameter=value</code>.</p>
+<hr />
+<h3 id="api-response-formats">API Response formats<a class="headerlink" href="#api-response-formats" title="Permanent link">&para;</a></h3>
+<p>Standard responses are provided as <code>Content-Type: application/json</code>. The wrapper
+format for JSON encoded data follows the standard Beacon response
+format where the main data is usually contained in the <code>response.results</code> list.</p>
+<hr />
+<h3 id="data-file-formats-pgxseg-segments">Data File Formats - <code>.pgxseg</code> Segments<a class="headerlink" href="#data-file-formats-pgxseg-segments" title="Permanent link">&para;</a></h3>
+<p>Progenetix uses a variation of a standard tab-separated columnar text file such
+as produced by array or sequencing CNV software, with an optional metadata header
+for e.g. plot or grouping instructions.</p>
+<p>Wile the first edition only was geared towards sample-linked segment annotations,
+a variation is now being provided for CNV frequencies.</p>
+<h4 id="pgxseg-sample-segment-files"><code>.pgxseg</code> Sample Segment Files<a class="headerlink" href="#pgxseg-sample-segment-files" title="Permanent link">&para;</a></h4>
+<ul>
+<li>a standard tab-delimited Progenetix segments file<ul>
+<li>an additional header may exist</li>
+<li>only first 5 columns are necessary</li>
+<li>column 5 (mean) can be empty or dot, if column 6 exists and contains status value</li>
+<li>undefined fields in existing columns are replaced with the "." character</li>
+</ul>
+</li>
+<li>header (optional)<ul>
+<li>header lines start with the <code>#</code> character</li>
+<li>Plot parameters:<ul>
+<li>lines start with <code>#plotpars=&gt;</code></li>
+<li>parameters are added in <code>parameter_name=value;other_parameter=itsValue</code> format - see below</li>
+<li>basically any <a href="https://github.com/progenetix/PGX/blob/master/config/plotdefaults.yaml">plot parameter from PGX</a> can be used</li>
+</ul>
+</li>
+<li>Sample / grouping parameters<ul>
+<li>the <code>biosample_id</code> parameter is required to assign values (e.g. group labels) to samples</li>
+<li><code>biosample_id</code> has to correspond to the identifiers used in column 1 of the following segments data</li>
+<li><code>parameter=value</code> pairs are semicolon-separated</li>
+<li>values may be wrapped in double quotation marks (<code>group_label="Ductal Breast Carcinoma"</code>)</li>
+<li><code>group_id</code> <strong>should</strong> be used for grouping</li>
+</ul>
+</li>
+<li>this is a convention for the Progenetix plotting engine</li>
+<li><code>group_label</code> is optional for grouping / labeling of the groups</li>
+<li>Metadata<ul>
+<li>lines start with <code>#meta=&gt;</code></li>
+<li>additional information about the file</li>
+<li>(so far) only informative</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>For example, this API call retireves the variants for 78 samples from two NCIt
+cancer types (please be aware of the <code>&amp;filterLogic=OR</code> pragma!):</p>
+<ul>
+<li><a href="https://progenetix.org/beacon/variants/?filters=NCIT:C6393,NCIT:C4504&amp;filterLogic=OR&amp;output=pgxseg">progenetix.org/beacon/variants/?filters=NCIT:C6393,NCIT:C4504&amp;filterLogic=OR&amp;output=pgxseg</a></li>
+</ul>
+<p>An excerpt of the segment file would look like below:</p>
+<div class="highlight"><pre><span></span><code>#meta=&gt;biosample_count=78
+#plotpars=&gt;title=&quot;Testing Custom Plot Parameters&quot;
+#plotpars=&gt;subtitle=&quot;Some Chromosomes, Colors etc.&quot;
+#plotpars=&gt;chr2plot=&quot;3,5,7,8,11,13,16&quot;
+#plotpars=&gt;color_var_dup_hex=#EE4500;color_var_del_hex=#09F911
+#plotpars=&gt;size_title_left_px=300
+#plotpars=&gt;size_text_title_left_px=10
+#sample=&gt;biosample_id=pgxbs-kftvhhmm;group_id=NCIT:C6393;group_label=&quot;Invasive Ductal and Invasive Lobular Breast Carcinoma&quot;
+#sample=&gt;biosample_id=GSM252886;group_id=NCIT:C4504;group_label=&quot;Malignant Breast Phyllodes Tumor&quot;
+biosample_id  chro  start stop  mean  variant_type  probes
+pgxbs-kftvhhmm  1 911484  11993973  -0.4486 DEL .
+pgxbs-kftvhhmm  1 12158755  22246766  0.2859 DUP  .
+pgxbs-kftvhhmm  1 22346353  24149880  -0.5713 DEL .
+pgxbs-kftvhhmm  1 24160170  33603123  0.0812  . .
+pgxbs-kftvhhmm  1 33683474  37248987  -0.6478 DEL .
+pgxbs-kftvhhmm  1 37391587  248655165 0.0342  . .
+pgxbs-kftvhhmm  2 110819  240942225 -0.0007 . .
+pgxbs-kftvhhmm  3 119131  4655519 -0.0122 . .
+pgxbs-kftvhhmm  3 4662952 4857477 0.9273 DUP  .
+...
+</code></pre></div>
+<h4 id="pgxseg-segment-cnv-frequencies"><code>.pgxseg</code> Segment CNV Frequencies<a class="headerlink" href="#pgxseg-segment-cnv-frequencies" title="Permanent link">&para;</a></h4>
+<p>In the frequency file</p>
+<ul>
+<li><code>group_id</code> values replace the <code>biosample_id</code><ul>
+<li>multiple groups can be concatenated in the file</li>
+</ul>
+</li>
+<li><code>chro</code>, <code>start</code> and <code>end</code> are the same as in the sample files</li>
+<li><code>gain_frequency</code> and <code>loss_frequency</code> indicate the <em>percent</em> values for gains and losses overlapping the segment, respectively</li>
+</ul>
+<p>Future options are under evaluation.</p>
+<p>Examples can be derived from the Progenetix "Services" API:</p>
+<ul>
+<li><a href="https://progenetix.org/services/intervalFrequencies/pgx:cohort-TCGAcancers/?output=pgxseg">/services/intervalFrequencies/pgx:cohort-TCGAcancers/?output=pgxseg</a><ul>
+<li>single group in REST syntax (here overall CNV frequencies in &gt;11000 cancer samples from the TCGA sample collection)</li>
+</ul>
+</li>
+<li><a href="https://progenetix.org/services/intervalFrequencies/?filters=icdom-81403,icdom-81443&amp;output=pgxseg">/services/intervalFrequencies/?filters=icdom-81403,icdom-81443&amp;output=pgxseg</a><ul>
+<li>2 sets using the <code>filters</code> parameter</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>#meta=&gt;genome_binning=1Mb;interval_number=3106
+#group=&gt;group_id=icdom-81403;label=Adenocarcinoma, NOS;dataset_id=progenetix;sample_count=18559
+group_id  chro  start end gain_frequency  loss_frequency  index
+icdom-81403 1 0 1000000 8.8 9.12  0
+icdom-81403 1 1000000 2000000 8.49  8.68  1
+icdom-81403 1 2000000 3000000 9.81  13.19 2
+icdom-81403 1 3000000 4000000 10.02 15.84 3
+icdom-81403 1 4000000 5000000 7.94  15.91 4
+...
+icdom-81403 2 228000000 229000000 7.37  6.62  477
+icdom-81403 2 229000000 230000000 7.39  6.89  478
+icdom-81403 2 230000000 231000000 8.3 7.0 479
+icdom-81403 2 231000000 232000000 8.24  6.86  480
+icdom-81403 2 232000000 233000000 9.1 7.89  481
+...
+</code></pre></div>
+<hr />
+<h3 id="data-matrix-files">Data Matrix Files<a class="headerlink" href="#data-matrix-files" title="Permanent link">&para;</a></h3>
+<h4 id="cnv-frequency-matrix">CNV Frequency Matrix<a class="headerlink" href="#cnv-frequency-matrix" title="Permanent link">&para;</a></h4>
+<p>The CNV frequency matrix contains interval CNV frequencies for genomic bins, separate for gain and loss frquencies:</p>
+<ul>
+<li>header similar to segment frequency files</li>
+<li>first column with group identifier</li>
+<li>standard genome binning on GRCh38 results in 2 x 3106<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup> value columns</li>
+<li>header line indicates genomic ranges for the bins</li>
+<li>first all gain frequencies (in %), then all losses</li>
+</ul>
+<div class="highlight"><pre><span></span><code>#meta=&gt;genome_binning=1Mb;interval_number=3106
+#group=&gt;group_id=NCIT:C7376;label=Pleural Malignant Mesothelioma;dataset_id=progenetix;sample_count=240
+#group=&gt;group_id=PMID:22824167;label=Beleut M et al. (2012)...;dataset_id=progenetix;sample_count=159
+group_id  1:0-1000000:gainF 1:1000000-2000000:gainF ...  1:0-1000000:lossF  1:1000000-2000000:lossF ...
+NCIT:C7376  9.58  7.92  ...  1.89 1.89  ...
+PMID:22824167 6.29  0.0 ... 8.18  4.4 ...
+</code></pre></div>
+<h5 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://progenetix.org/services/intervalFrequencies/?datasetIds=progenetix&amp;output=pgxmatrix&amp;filters=NCIT:C7376,PMID:22824167">progenetix.org/services/intervalFrequencies/?datasetIds=progenetix&amp;output=pgxmatrix&amp;filters=NCIT:C7376,PMID:22824167</a></li>
+</ul>
+<h4 id="cnv-status-matrix">CNV Status Matrix<a class="headerlink" href="#cnv-status-matrix" title="Permanent link">&para;</a></h4>
+<p>For endpoints with per biosample or callset / analysis delvery, the Progenetix
+API offers the delivery of a binned status matrix. This matrix can e.g. directly
+be used for clustering CNV patterns.</p>
+<ul>
+<li>id columns, followed by<ul>
+<li>all "gain status" columns (e.g. 3106<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, see above), followed by</li>
+<li>all "loss status" columns</li>
+</ul>
+</li>
+<li>the status is indicated by a coverage value, i.e. the fraction of how much the
+binned interval overlaps with one or more CNVs of the given type.</li>
+</ul>
+<p>The header will contain sample specific information.</p>
+<div class="highlight"><pre><span></span><code>#meta=&gt;id=progenetix
+#meta=&gt;assemblyId=GRCh38
+#meta=&gt;filters=NCIT:C4443
+#meta=&gt;genome_binning=1Mb;interval_number=3106
+#meta=&gt;no_info_columns=3;no_interval_columns=6212
+#sample=&gt;biosample_id=pgxbs-kftvktaz;analysis_ids=pgxcs-kftwu9ca;group_id=NCIT:C6650;group_label=Ampulla of Vater adenocarcinoma;NCIT::id=NCIT:C6650;NCIT::label=Ampulla of Vater adenocarcinoma
+#sample=&gt;biosample_id=pgxbs-kftvkyeq;analysis_ids=pgxcs-kftwvv3p;group_id=NCIT:C3908;group_label=Ampulla of Vater Carcinoma;NCIT::id=NCIT:C3908;NCIT::label=Ampulla of Vater Carcinoma
+...
+#meta=&gt;biosampleCount=26;analysisCount=26
+analysis_id biosample_id  group_id  1:0-1000000:DUP 1:1000000-2000000:DUP 1:2000000-3000000:DUP 1:3000000-4000000:DUP  ...
+pgxcs-kftwu9ca  pgxbs-kftvktaz  NCIT:C6650  0 0.3434  1.0 1.0
+pgxcs-kftwwbry  pgxbs-kftvkzwp  NCIT:C3908  0.5801  0 0.6415  1.0
+...
+</code></pre></div>
+<h5 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://progenetix.org/beacon/callsets/?output=pgxmatrix&amp;filters=NCIT:C4443">progenetix.org/beacon/callsets/?output=pgxmatrix&amp;filters=NCIT:C4443</a></li>
+</ul>
+<h3 id="image-formats">Image Formats<a class="headerlink" href="#image-formats" title="Permanent link">&para;</a></h3>
+<p>The standard format for (plot-)images generated on Progenetix is Scalable Vector Graphics (<a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a>). As the name implies, SVG is <em>scalable</em>, i.e. images can be scaled up without loosing quality or expanding in storage size. However, some of teh generated images use also embedded rastered components which will deteriorate during scaling - this is e.g. the case for array probe plots.</p>
+<p>!!! note <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">Wikipedia</a>
+    All major modern web browsers—including Mozilla Firefox, Internet Explorer, Google Chrome, Opera, Safari, and Microsoft Edge—have SVG rendering support.</p>
+<p>On most pages where plots are being displayed there is a download option for the images - (please alert us where those are missing). Browsers also have the option to export SVGs themselves e.g. as PDF.</p>
+<h4 id="the-pgx-plotting-library">The PGX plotting library<a class="headerlink" href="#the-pgx-plotting-library" title="Permanent link">&para;</a></h4>
+<p>Plots on Progenetix are generated using the <a href="http://github.com/progenetix/PGX/">PGX package</a>, a set of Perl libraries for processing and graphical representation of CNV data. The package contains tools to</p>
+<ul>
+<li>read and write e.g. <a href="/doc/fileformats.html">Progentix segment files</a></li>
+<li>generate binned status maps</li>
+<li>render plots of sample-specific and aggregate CNV data, such as histograms and CNV frequency heatmaps     </li>
+</ul>
+<h4 id="cnv-histogram-plots">CNV Histogram Plots<a class="headerlink" href="#cnv-histogram-plots" title="Permanent link">&para;</a></h4>
+<p>There are two possibilities to plot CNV histograms through the Progenetix API w/o using the user interface:</p>
+<ol>
+<li>direct visualization of pre-computed collations, e.g. publications or diagnosttic entities<ul>
+<li><a href="">progenetix.org/cgi/PGX/cgi/collationPlots.cgi?datasetIds=progenetix&amp;id=NCIT:C4443</a></li>
+</ul>
+</li>
+<li>a Beacon API query with the added option <code>&amp;output=histoplot</code><ul>
+<li><a href="https://progenetix.org/beacon/biosamples/?limit=200&amp;datasetIds=progenetix&amp;referenceName=refseq:NC_000009.12&amp;variantType=EFO:0030067&amp;start=21500000,21975098&amp;end=21967753,22500000&amp;filters=NCIT:C3058&amp;output=histoplot">progenetix.org/beacon/biosamples/?limit=200&amp;datasetIds=progenetix&amp;referenceName=refseq:NC_000009.12&amp;variantType=EFO:0030067&amp;start=21500000,21975098&amp;end=21967753,22500000&amp;filters=NCIT:C3058&amp;output=histoplot</a></li>
+</ul>
+</li>
+</ol>
+<p>Please <strong>use option 1</strong> if accessing complete entities (i.e. only using a single <code>filters</code> value) - this option is not limited through large sample numbers.</p>
+<hr />
+<h2 id="services">Services<a class="headerlink" href="#services" title="Permanent link">&para;</a></h2>
+<h3 id="cancer-genomics-publications-publications">Cancer Genomics Publications <code>publications</code><a class="headerlink" href="#cancer-genomics-publications-publications" title="Permanent link">&para;</a></h3>
+<p>The <code>publications</code> service serves as backend API for the display of genome
+screening publications through the Progenetix <a href="https://progenetix.org/publications/">Publications DB</a>.</p>
+<p>It provides articles describing whole genome screening (WGS, WES, aCGH, cCGH) experiments in cancer, including some information about e.g. the numbers of samples analysed with a given technology and if sample profiles are available in Progenetix.</p>
+<p>Please contact us to alert us about additional articles you are aware of. The inclusion criteria are described in the <a href="/publication-collection">documentation</a>.</p>
+<p>Since 2021 you can now directly submit suggestions for matching publications to the <a href="https://github.com/progenetix/oncopubs">oncopubs repository on Github</a>.</p>
+<hr />
+<h3 id="cytoband-mapping-cytomapper">Cytoband Mapping <code>cytomapper</code><a class="headerlink" href="#cytoband-mapping-cytomapper" title="Permanent link">&para;</a></h3>
+<p>This services parses either:</p>
+<ul>
+<li>a properly formatted cytoband annotation (<code>cytoBands</code>)<ul>
+<li>"8", "9p11q21", "8q", "1p12qter"</li>
+</ul>
+</li>
+<li>a concatenated <code>chroBases</code> parameter<ul>
+<li><code>7:23028447-45000000</code></li>
+<li><code>X:99202660</code></li>
+</ul>
+</li>
+</ul>
+<p>While the return object is JSON by default, specifying <code>text=1</code>, together with the <code>cytoBands</code> or
+<code>chroBases</code> parameter will return the text version.</p>
+<p>There is a fallback to <em>GRCh38</em> if no assembly is being provided.</p>
+<p>The <code>cytoBands</code> and <code>chroBases</code> parameters can be used for running the script on the command line
+(see examples below).</p>
+<h4 id="examples_2">Examples<a class="headerlink" href="#examples_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>retrieve coordinates for some bands on chromosome 8  <ul>
+<li><a href="https://progenetix.org/services/cytomapper?assemblyId=NCBI36.1&amp;cytoBands=8q24.1">progenetix.org/services/cytomapper?assemblyId=NCBI36.1&amp;cytoBands=8q24.1</a></li>
+</ul>
+</li>
+<li>as above, just as text:<ul>
+<li><a href="https://progenetix.org/services/cytomapper?assemblyId=NCBI.1&amp;cytoBands=8q&amp;output=text">progenetix.org/services/cytomapper?assemblyId=NCBI.1&amp;cytoBands=8q&amp;output=text</a></li>
+<li><em>cytomapper shortcut</em>: <a href="https://progenetix.org/services/cytomapper/?assemblyId=NCBI36.1&amp;cytoBands=8q&amp;output=text">progenetix.org/services/cytomapper/?assemblyId=NCBI36.1&amp;cytoBands=8q&amp;output=text</a></li>
+</ul>
+</li>
+<li>get the cytobands whith which a base range on chromosome 17 overlaps, in short and long form<ul>
+<li><a href="https://progenetix.org/services/cytomapper?assemblyId=GRCh37&amp;chroBases=17:800000-24326000">progenetix.org/services/cytomapper?assemblyId=GRCh37&amp;chroBases=17:800000-24326000</a></li>
+</ul>
+</li>
+<li>using <code>curl</code> to get the text format mapping of a cytoband range, using the API <code>services</code> shortcut:<ul>
+<li><code>curl -k https://progenetix.org/services/cytomapper?cytoBands\=8q21q24.1&amp;assemblyId\=hg18&amp;text\=1</code></li>
+</ul>
+</li>
+<li>running it locally<ul>
+<li><code>./services/cytomapper.py --cytoBands 9p12q21</code></li>
+<li><code>./services/cytomapper.py --assemblyId GRCh37 --cytoBands 9p12q21</code></li>
+<li><code>./services/cytomapper.py --chroBases=17:800000-2432600</code></li>
+<li><code>./services/cytomapper.py --assemblyId GRCh37 --cytoBands 8q --output json</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="response">Response<a class="headerlink" href="#response" title="Permanent link">&para;</a></h4>
+<p>As in other <strong>bycon</strong> <code>services</code>, API responses are in JSON format with the main
+content being contained in the <code>response.results</code> field.</p>
+<hr />
+<h3 id="gene-coordinates-genespans">Gene Coordinates <code>genespans</code><a class="headerlink" href="#gene-coordinates-genespans" title="Permanent link">&para;</a></h3>
+<ul>
+<li>genomic mappings of gene coordinats</li>
+<li>initially limited to <em>GRCh38</em> and overall CDS extension</li>
+<li>responds to (start-anchored) text input of HUGO gene symbols using the <code>geneId</code>
+parameter or path value</li>
+<li>returns a list of matching gene objects (see below under <strong>Response Formats</strong>)</li>
+<li>the <code>filterPrecision=exact</code> query parameter restricts the response to a single
+exact gene symbol match</li>
+</ul>
+<h4 id="examples_3">Examples<a class="headerlink" href="#examples_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://progenetix.org/services/genespans/?geneId=TP53&amp;filterPrecision=exact">progenetix.org/services/genespans/?geneId=TP53&amp;filterPrecision=exact</a></li>
+<li><a href="https://progenetix.org/services/genespans/CDKN2A">progenetix.org/services/genespans/CDKN2A</a></li>
+</ul>
+<hr />
+<h3 id="ontology-cross-mapping-ontologymaps">Ontology Cross-Mapping (<code>ontologymaps</code>)<a class="headerlink" href="#ontology-cross-mapping-ontologymaps" title="Permanent link">&para;</a></h3>
+<p>The <code>ontologymaps</code> service provides equivalency mapping between ICD-O and other
+classification systems, notably NCIt. The mappings are represented in the <a href="https://github.com/progenetix/ICDOntologies">ICDOntologies</a> project and accessible trough a front-end in the <a href="https://progenetix.org/service-collection/ontologymaps">Progenetix Services area</a>.</p>
+<h4 id="icd-o-representation">ICD-O Representation<a class="headerlink" href="#icd-o-representation" title="Permanent link">&para;</a></h4>
+<p>Our resources use an internal representation of ICD-O 3 codes since no official CURIES are provided by the IARC. The syntax is:</p>
+<ul>
+<li>ICD-O 3 morphologies<ul>
+<li>"pgx:icdom-"<code>s/\///</code>; i.e. number only code</li>
+<li>"8500/3" =&gt; <code>pgx:icdom-85003</code></li>
+</ul>
+</li>
+<li>ICD-O 3 Topographies<ul>
+<li>"icdot-" + code</li>
+<li>"C53.9" =&gt; <code>pgx:icdot-C53.9</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<h5 id="filters"><code>filters</code><a class="headerlink" href="#filters" title="Permanent link">&para;</a></h5>
+<ul>
+<li>required</li>
+<li>comma-concatenated <strong>complete</strong> codes and/or prefixes</li>
+<li>partial codes (see above for ICD-O syntax) will not be matched unless a relaxed filter precision is indicated</li>
+</ul>
+<h5 id="filterprecision"><code>filterPrecision</code><a class="headerlink" href="#filterprecision" title="Permanent link">&para;</a></h5>
+<ul>
+<li>optional</li>
+<li>to allow partial code matches (see examples below)</li>
+</ul>
+<h4 id="examples_4">Examples<a class="headerlink" href="#examples_4" title="Permanent link">&para;</a></h4>
+<h5 id="ncit-and-icd-o-3">NCIt and ICD-O 3<a class="headerlink" href="#ncit-and-icd-o-3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://progenetix.org/services/ontologymaps/?filters=pgx:icdom-85003">progenetix.org/services/ontologymaps/?filters=pgx:icdom-85003</a></li>
+<li><a href="https://progenetix.org/services/ontologymaps/?filters=NCIT">https://progenetix.org/services/ontologymaps/?filters=NCIT</a></li>
+<li><a href="https://progenetix.org/services/ontologymaps/?filters=pgx:icdom-85003,pgx:icdot-C50.9">progenetix.org/services/ontologymaps/?filters=pgx:icdom-85003,pgx:icdot-C50.9</a></li>
+<li><a href="https://progenetix.org/services/ontologymaps/?filters=icdom-85,icdot-C50&amp;filterPrecision=start">progenetix.org/services/ontologymaps/?filters=icdom-85,icdot-C50&amp;filterPrecision=start</a><ul>
+<li>As in the example above, but by stemmming the query parameters and providing the <code>filterPrecision=start</code> pragma, the response will now be a list of matched data objects (inputs and equivalents)</li>
+</ul>
+</li>
+</ul>
+<h5 id="uberon-and-icd-o-3-topography">UBERON and ICD-O 3 Topography<a class="headerlink" href="#uberon-and-icd-o-3-topography" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://progenetix.org/services/ontologymaps/?filters=UBERON&amp;filterPrecision=start">progenetix.org/services/ontologymaps/?filters=UBERON&amp;filterPrecision=start</a><ul>
+<li>all mappings</li>
+</ul>
+</li>
+<li><a href="https://progenetix.org/services/ontologymaps/?filters=UBERON,icdot-C0&amp;filterPrecision=start">progenetix.org/services/ontologymaps/?filters=UBERON,icdot-C0&amp;filterPrecision=start</a><ul>
+<li>all <code>C0...</code> ICD-O T matches</li>
+<li>limited to <code>UBERON</code> mappings since the prefix was given, too (otherwise all the NCIT mappings would also be listed for these ICD-O T code matches)</li>
+</ul>
+</li>
+</ul>
+<h4 id="more-information">More Information<a class="headerlink" href="#more-information" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://progenetix.org/service-collection/ontologymaps">Web Interface for ICD &amp; NCIT</a></li>
+<li><a href="https://progenetix.org/service-collection/uberonmaps">Interface for ICD &amp; UBERON</a></li>
+</ul>
+<hr />
+<h3 id="public-and-local-identifiers-ids">Public and Local Identifiers <code>ids</code><a class="headerlink" href="#public-and-local-identifiers-ids" title="Permanent link">&para;</a></h3>
+<p>The <code>ids</code> service forwards compatible, prefixed ids (see <a href="https://github.com/progenetix/bycon/blob/master/services/config/ids.yaml"><code>config/ids.yaml</code></a>) to specific
+website endpoints. There is no check if the id exists; this is left to the web
+page handling itself.</p>
+<ul>
+<li><a href="https://progenetix.org/services/ids/pgxbs-kftva5zv">progenetix.org/services/ids/pgxbs-kftva5zv</a></li>
+<li><a href="https://progenetix.org/services/ids/PMID:28966033">progenetix.org/services/ids/PMID:28966033</a></li>
+<li><a href="https://progenetix.org/services/ids/NCIT:C3262">progenetix.org/services/ids/NCIT:C3262</a></li>
+<li><a href="https://progenetix.org/services/ids/cellosaurus:CVCL_0022">progenetix.org/services/ids/cellosaurus:CVCL_0022</a></li>
+<li><a href="https://progenetix.org/services/ids/pgx:icdom-81703">progenetix.org/services/ids/pgx:icdom-81703</a></li>
+</ul>
+<p>The <code>pgx</code> prefix has been registered with <a href="http://identifiers.org">identifiers.org</a>
+and the service can also be used to access identifiers at Progenetix.</p>
+<ul>
+<li><a href="https://identifiers.org/pgx:pgxbs-kftva5zv">identifiers.org/pgx:pgxbs-kftva5zv</a></li>
+</ul>
+<hr />
+<h3 id="geographic-locations-cities-geolocations">Geographic Locations / Cities <em>geolocations</em><a class="headerlink" href="#geographic-locations-cities-geolocations" title="Permanent link">&para;</a></h3>
+<p>This service provides geographic location mapping for cities above 25'000
+inhabitants (~22750 cities), through either:</p>
+<ul>
+<li>matching of the (start-anchored) name</li>
+<li>providing GeoJSON compatible parameters:<ul>
+<li><code>geolongitude</code></li>
+<li><code>geolatitude</code></li>
+<li><code>geodistance</code><ul>
+<li>optional, in meters; a default of 10'000m (10km) is provided</li>
+<li>can be used for e.g. retrieving all places (or data from places if used
+with publication or sample searches) in an approximate region (e.g. for
+Europe using <code>2500000</code> around Heidelberg...)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="query-types">Query Types<a class="headerlink" href="#query-types" title="Permanent link">&para;</a></h4>
+<ul>
+<li>by <code>city</code></li>
+<li>start-anchored, case insensitive match <code>?city=heide</code></li>
+<li>by <code>id</code></li>
+<li>this uses the <code>city::country</code> "id" value, e.g. <code>lecce::italy</code></li>
+<li>by <code>geolatitude</code>, <code>geolongitude</code>, <code>geodistance</code></li>
+</ul>
+<h5 id="examples_5">Examples<a class="headerlink" href="#examples_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://progenetix.org/services/geolocations?city=zurich">progenetix.org/services/geolocations?city=zurich</a></li>
+<li><a href="https://progenetix.org/services/geolocations?city=New">progenetix.org/services/geolocations?city=New</a></li>
+<li><a href="https://progenetix.org/services/geolocations?geolongitude=-0.13&amp;geolatitude=51.51&amp;geodistance=100000">progenetix.org/services/geolocations?geolongitude=-0.13&amp;geolatitude=51.51&amp;geodistance=100000</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Before 2022-02-11 there where 3102 (or 6204) intervals. After this, a changed algorithm lead to
+avoidance of centromere-spanning intervals, i.e. shortened last intervals assigned to the chromosomal
+p-arm and downstream shifts of interval positions.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+              
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../ui/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pages &amp; Forms" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Pages & Forms
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../use-cases/" class="md-footer__link md-footer__link--next" aria-label="Next: Use Case Examples" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Use Case Examples
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; Copyright 2022, Michael Baudis and progenetix.org
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/progenetix" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/progenetix" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "search.highlight", "search.share", "navigation.instant", "navigation.tracking", "navigation.sections", "toc.integrate"], "search": "../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.431f3d41.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+    
+  </body>
+</html>

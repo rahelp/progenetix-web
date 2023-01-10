@@ -3,7 +3,10 @@ datasetIds:
   label: Dataset
   rules:
     required: true
-  isMulti: true
+  defaultValue: progenetix
+  options:
+    - value: progenetix
+      label: progenetix
 assemblyId:
   label: Genome Assembly
   infoText: |
@@ -12,7 +15,7 @@ assemblyId:
   options:
     - value: GRCh38
       label: GRCh38 / hg38
-geneSymbol:
+geneId:
   label: Gene Symbol
   infoText: The gene symbol (HUGO).
   defaultValue: ""
@@ -73,13 +76,13 @@ referenceName:
       value: "21"
     - label: "22"
       value: "22"
-    - label: X
-      value: X
-    - label: Y
-      value: Y
+    - label: "X"
+      value: "X"
+    - label: "Y"
+      value: "Y"
 variantType:
   label: "(Structural) Variant Type"
-  infoText: |
+  infoText: >-
     The type of a structural variant for e.g. CNV searches.
   defaultValue: ""
   options:
@@ -88,7 +91,7 @@ variantType:
     - value: "EFO:0030070"
       label: "EFO:0030070 (copy number gain)"
     - value: "EFO:0030066"
-      label: "EFO:0030066 (relative copy number variation)"
+      label: "EFO:0030066 (any relative CN variation)"
     - value: ""
       label: ""
 start:
@@ -106,11 +109,11 @@ end:
     single value, or in case of fuzzy requests for e.g. copy number variants
     the end provided as a range for the possible occurrence of
     the CNV end (e.g. "21967753-22500000").
-varMinLength:
+variantMinLength:
   label: Minimum Variant Length
   type: number
   infoText: The minimal length, in bases, of a genomic variant. This parameter can be applied to e.g. CNV queries.
-varMaxLength:
+variantMaxLength:
   label: Maximal Variant Length
   type: number
   infoText: The maximal length, in bases, of a genomic variant. This parameter can be applied to e.g. CNV queries.
@@ -246,3 +249,17 @@ geodistanceKm:
   label: Range (km)
   type: number
   defaultValue: 100
+skip:
+  label: Skip Pages
+  infoText: >
+    The number of result pages to skip when retrieving data.
+  rules:
+    required: false
+  defaultValue: 0
+limit:
+  label: Response Limit / Page Size
+  infoText: >
+    The maximum number of biosamples to retrieve per page and also the size of response pages.
+  rules:
+    required: false
+  defaultValue: 1000

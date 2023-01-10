@@ -1,8 +1,4 @@
-# Classifications, Ontologies and Concepts
-
-[TOC]
-
--------------------------------------------------------------------------------
+# Classifications, Ontologies and Standards
 
 The Progenetix resource utilizes standardized diagnostic coding systems, with a
 move towards hierarchical ontologies. As part of the coding process we have
@@ -13,20 +9,23 @@ Additionally to diagnostic and other clinical concepts, Progenetix increasingly
 uses hierarchical terms and concepts for the annotation and querying of technical
 parameters such as platform technologies. Overall, the Progenetix resource uses a query syntax based around the [Beacon v2 "filters"](https://beacon-project.io/v2/filters.html) concept with a [CURIE](https://www.w3.org/TR/2010/NOTE-curie-20101216/) based syntax.
 
+-------------------------------------------------------------------------------
+
 ## List of filters recognized by different query endpoints
 
 ### Public Ontologies with CURIE-based syntax
 
-| CURIE prefix        |  Code/Ontology          | Examples |
-| ------------- |:-------------:| ----- |
-| NCIT    | NCIt Neoplasm [^1] | NCIT:C27676 |
-| HP      | HPO[^2] | HP:0012209 |
-| PMID    | NCBI Pubmed ID | [PMID:18810378](https://progenetix.org/services/ids/PMID:18810378) |
-| geo   | NCBI Gene Expression Omnibus[^3] | [geo:GPL6801](https://progenetix.org/services/ids/geo:GPL6801), [geo:GSE19399](https://progenetix.org/services/ids/geo:GSE19399), [geo:GSM491153](https://progenetix.org/services/ids/geo:GSM491153) |
-| arrayexpress | EBI ArrayExpress [^4] | arrayexpress:E-MEXP-1008 |
-| cellosaurus      | Cellosaurus - a knowledge resource on cell lines [^5]| cellosaurus:CVCL_1650 |
-| Uberon | Uberon Anatomical Ontology [^6] |UBERON:0000992|
-| cbioportal      | cBioPortal[^9] | [cbioportal:msk_impact_2017](https://progenetix.org/services/ids/cbioportal:msk_impact_2017) |
+| CURIE prefix | Code/Ontology                    | Examples |
+| ------------ | -------------------------------- | -------- |
+| NCIT         | NCIt Neoplasm[^1]                | NCIT:C27676 |
+| HP           | HPO[^2]                          | HP:0012209 |
+| PMID         | NCBI Pubmed ID                   | [PMID:18810378](http://progenetix.org/services/ids/PMID:18810378) |
+| geo          | NCBI Gene Expression Omnibus[^3] | [geo:GPL6801](http://progenetix.org/services/ids/geo:GPL6801), [geo:GSE19399](http://progenetix.org/services/ids/geo:GSE19399), [geo:GSM491153](http://progenetix.org/services/ids/geo:GSM491153) |
+| arrayexpress | EBI ArrayExpress[^4]             | arrayexpress:E-MEXP-1008 |
+| cellosaurus  | Cellosaurus - a knowledge resource on cell lines [^5]| cellosaurus:CVCL_1650 |
+| UBERON       | Uberon Anatomical Ontology[^6]   |UBERON:0000992|
+| cbioportal   | cBioPortal[^9]                   | [cbioportal:msk_impact_2017](http://progenetix.org/services/ids/cbioportal:msk_impact_2017) |
+
 
 ### Private filters
 
@@ -36,12 +35,15 @@ additionally a set of structured non-CURIE identifiers.
 
 For terms with a `pgx` prefix, the [identifiers.org resolver](http://identifiers.org/pgx/) will 
 
-| Filter prefix / local part |  Code/Ontology          | Example  |
-| ------------- |:-------------:| ----- |
-| pgx:icdom-... | ICD-O 3[^7] Morphologies (Progenetix)| pgx:icdom-81703 |
-| pgx:icdot... | ICD-O 3[^7] Topographies(Progenetix)| pgx:icdot-C04.9 |
-| TCGA  | The Cancer Genome Atlas (Progenetix)[^8] | TCGA-000002fc-53a0-420e-b2aa-a40a358bba37 |
-| pgx:pgxcohort-...  | Progenetix cohorts [^10]| pgx:pgxcohort-arraymap |
+| Filter prefix / local part | Code/Ontology                             | Example                                   |
+| -------------------------- | ----------------------------------------- | ----------------------------------------- |
+| pgx:icdom-...              | ICD-O 3[^7] Morphologies (Progenetix)     | pgx:icdom-81703                           |
+| pgx:icdot...               | ICD-O 3[^7] Topographies(Progenetix)      | pgx:icdot-C04.9                           |
+| TCGA                       | The Cancer Genome Atlas (Progenetix)[^8]  | TCGA-000002fc-53a0-420e-b2aa-a40a358bba37 |
+| pgx:pgxcohort-...          | Progenetix cohorts [^10]                  | pgx:pgxcohort-arraymap                    |
+
+
+-------------------------------------------------------------------------------
 
 ## Diagnoses, Phenotypes and Histologies
 
@@ -50,11 +52,11 @@ For terms with a `pgx` prefix, the [identifiers.org resolver](http://identifiers
 * based on [NCIt neoplasm core](https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/Neoplasm/About_Core.html)
 but now extended based on the whole "neoplasia" subtree of the NCI Thesaurus (`NCIT:C3262` and child terms)
 * first implementation of NCIt concepts mapping in January 2017, then for a subset of arrayMap samples
-* now providing ICD-O 3 <=> NCIt mappings through the [ICDOntoologies](https://github.com/progenetix/ICDOntologies) mapping project with a [front-end an API](https://progenetix.org/service-collection/ontologymaps/) on the website
+* now providing ICD-O 3 <=> NCIt mappings through the [ICDOntoologies](https://github.com/progenetix/ICDOntologies) mapping project with a [front-end an API](http://progenetix.org/service-collection/ontologymaps/) on the website
 
 #### Current NCIt sample codes
 
-* [progenetix.org/services/collations?collationTypes=NCIT&output=text](https://progenetix.org/services/collations?collationTypes=NCIT&output=text)
+* [progenetix.org/services/collations?collationTypes=NCIT&output=text](http://progenetix.org/services/collations?collationTypes=NCIT&output=text)
 
 ### ICD coding of tumor samples
 
@@ -65,9 +67,9 @@ The mappings used here for the ICD morphology codings (mapped to ICDMORPHOLOGY a
 #### Current ICD-O sample codes
 
 * ICD-O Morphologies
-    - [progenetix.org/services/collations?collationTypes=icdom&output=text](https://progenetix.org/services/collations/?collationTypes=icdom&output=text)
+    - [progenetix.org/services/collations?collationTypes=icdom&output=text](http://progenetix.org/services/collations/?collationTypes=icdom&output=text)
 * ICD-O Topographies
-    - [progenetix.org/services/collations/?collationTypes=icdot&method=ids&output=text](https://progenetix.org/services/collations/?collationTypes=icdot&method=ids&output=text)
+    - [progenetix.org/services/collations/?collationTypes=icdot&method=ids&output=text](http://progenetix.org/services/collations/?collationTypes=icdot&method=ids&output=text)
 
 ### UBERON codes
 
@@ -76,7 +78,7 @@ are detailed in the related [icdot2uberon](https://github.com/progenetix/icdot2u
 
 #### Current UBERON sample codes
 
-* [progenetix.org/services/collations?collationTypes=UBERON&method=counts&output=text](https://progenetix.org/services/collations?collationTypes=UBERON&method=counts&output=text)
+* [progenetix.org/services/collations?collationTypes=UBERON&method=counts&output=text](http://progenetix.org/services/collations?collationTypes=UBERON&method=counts&output=text)
 
 --------------------------------------------------------------------------------
 
@@ -138,8 +140,51 @@ label: copy number assessment
                    copies
 ```
 
+-------------------------------------------------------------------------------
 
-----
+## Geolocation Data
+
+### Provenance and use of geolocation data
+
+Geographic point coordinates are assigned to each sample after review of existing information from associated publications or repository information for their ”best available” geographic origin using a precedence of:  
+
+1. sample specific data (e.g. from article text)
+2. experiment location
+3. first author proxy
+
+For publications w/o accessible sample data in general the "author proxy" is being used, unless specific annotations have been found in the article.
+
+A more detailed discussion of the problems and benefits of geographic provenance tagging can be found in [Carrio-Cordo _et al._, DATABASE 2020](https://academic.oup.com/database/article/doi/10.1093/database/baaa009/5812711).
+
+#### Geolocations Service
+
+The Progenetix API provides a service for [retrieving geographic coordinates](/https://docs.progenetix.org/services/#geographic-locations-cities-geolocations) as point coordinates, for the majority of cities.
+
+#### `GeoLocation` schema
+
+The current version of the JSON Schema data schema for the geolocation object can be accessed through the [Progenetix services API](http://progenetix.org/services/schemas/GeoLocation/).
+
+```
+"geometry": {
+  "coordinates": [
+    8.69,
+    49.41
+  ],
+  "type": "Point"
+},
+"properties": {
+  "ISO3166alpha2": "DE",
+  "ISO3166alpha3": "DEU",
+  "city": "Heidelberg",
+  "continent": "Europe",
+  "country": "Germany"
+},
+"type": "Feature"
+```
+
+
+
+-------------------------------------------------------------------------------
 
 [^1]: National Cancer Institute Thesaurus Neoplasm [NCIt Neoplasm](https://bioportal.bioontology.org/ontologies/NCIT_NEOPLASM)
 [^2]: Human phenotype ontology [HPO](https://hpo.jax.org)
@@ -150,4 +195,4 @@ label: copy number assessment
 [^7]:International Classification of Diseases for Oncology, 3rd Edition [ICD-O-3](https://www.who.int/standards/classifications/other-classifications/international-classification-of-diseases-for-oncology)
 [^8]: Supports [TCGA](https://portal.gdc.cancer.gov) Sample UUID.
 [^9]: Supports [cBioPortal](https://www.cbioportal.org/datasets) Study ID.
-[^10]: Cohorts defined in Progenetix involving a collection of related samples. Currently includes (add `pgxcohort-`): arraymap, 2021progenetix, DIPG, TCGA, TCGAcancers, [gao2021signatures](https://progenetix.org/progenetix-cohorts/gao-2021-signatures/).
+[^10]: Cohorts defined in Progenetix involving a collection of related samples. Currently includes (add `pgx:cohort-`): arraymap, 2021progenetix, DIPG, TCGA, TCGAcancers, [gao2021signatures](http://progenetix.org/progenetix-cohorts/gao-2021-signatures/).

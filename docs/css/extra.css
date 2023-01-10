@@ -4,6 +4,26 @@ body {
   font-weight: 400
 }
 
+@media only screen and (min-width: 76.25em) {
+  .md-main__inner {
+    max-width: none;
+  }
+  .md-sidebar--primary {
+    left: 0;
+  }
+  .md-sidebar--secondary {
+    right: 0;
+    margin-left: 0;
+    -webkit-transform: none;
+    transform: none;   
+  }
+}
+
+.md-grid {
+  max-width: 1024px; 
+}
+
+
 /* Sidebar header (and topbar for mobile) */
 .wy-side-nav-search, .wy-nav-top {
   background: #dd6940;
@@ -20,10 +40,76 @@ li.toctree-l1 {
   font-size: 1.2em;
 }
 
-div.admonition tt.xref, div.admonition code.xref, div.admonition a tt {
+.admonition .details .example {
   font-size: 0.9em;
 }
 
-div.admonition {
-  border: 1px solid #dd6940;
+.md-typeset {
+    line-height:1.4
+}
+
+.md-typeset ul {
+    margin-bottom: 0.8em;
+    margin-top:0.2em
+}
+
+.md-typeset ul li {
+    margin-bottom:.1em
+}
+
+.md-typeset ul ul { list-style-type: circle; }
+
+.md-typeset pre { font-size: 0.8em; }
+
+.md-typeset h1 {
+    font-size: 1.9em;
+    margin:0 0 0.8em
+}
+
+
+.md-typeset h2 {
+    font-size: 1.5em;
+    line-height: 1.3;
+    margin:1.4em 0 0.6em
+}
+
+.md-typeset h3 {
+    font-size: 1.25em;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    line-height: 1.3;
+    margin: 1em 0 0.4em
+}
+
+.md-typeset h4 {
+    line-height: 1.3;
+    letter-spacing: -.01em;
+    margin: 0.8em 0 0.2em
+}
+
+/* Blog Styles */
+.mdx-author {
+  display: flex;
+  font-size: 13.6px;
+}
+.mdx-author img {
+  height: 40px;
+  border-radius: 100%;
+}
+.mdx-author p:first-child {
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+.mdx-author p > span {
+  display: block;
+}
+
+.blog-post-aside {
+  margin-top: -5px;
+  font-size: 0.9em;
+}
+
+.mermaid {
+  display: flex;
+  justify-content: center;
 }

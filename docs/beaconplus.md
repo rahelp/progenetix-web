@@ -1,9 +1,5 @@
 # Beacon - Discovery Services for Genomic Data
 
-[TOC]
-
--------------------------------------------------------------------------------
-
 ![Beacon Icon](http://info.progenetix.org/assets/img/logo_beacon.png){ align=right width=25px}The Beacon protocol defines an open standard for genomics data discovery,
 developed by members of the Global Alliance for Genomics & Health. Since 2016,
 the Beacon protocols is being developed through the
@@ -14,7 +10,7 @@ As part of the project, since early 2016 the [Computational Cytogenetics and Onc
 to demonstrate current functionality and future Beacon protocol extensions.
 
 The Beacon<sup><span style="color: #d00;">+</span></sup> implementation is a
-custom front end on top of the [Progenetix](https://progenetix.org)
+custom front end on top of the [Progenetix](http://progenetix.org)
 dataset, with emphasis on structural genome variations from cancer samples.
 
 On 2020-01-20,  Beacon<sup><span style="color: #d00;">+</span></sup> became part
@@ -44,7 +40,7 @@ The GA4GH data model for genomics recommends the use of a principle object hiera
 In the Progenetix backend we mirror the GA4GH data model in the storage system, consisting of the corresponding
 
 * variants
-* callsets (analyses)
+* callsets (compares to runs + analyses)
 * biosamples
 * individuals
 
@@ -63,7 +59,7 @@ more complex terms are only available through `PUT` requests.
 
 ##### Example
 
-```
+``` JSON
 "filters": [
     {
         "id": "NCIT:C4536",
@@ -90,6 +86,24 @@ Examples for codes with hierarchical treatment within the filter space are:
 
 ## Beacon API
 
+
+### Beacon-style JSON responses
+
+The Progenetix resource's API utilizes the `bycon` framework for data query and
+delivery and represents a custom implementation of the Beacon _v2_ API.
+
+The standard format for JSON responses corresponds to a generic Beacon v2
+response, with the `meta` and `response` root elements. Depending on the endpoint,
+the main data will be a list of objects either inside `response.results` or (mostly)
+in `response.resultSets.results`. Additionally, most API responses (e.g. for biosamples
+or variants) provide access to data using _handover_ objects.
+
+Example responses can be genrated through the [path examples](#beacon-v2-path-examples-in-progenetix)
+below. 
+
+Please be aware that Beacon responses use `camelCased` parameter names.
+
+
 ### Beacon v2: Path Examples in Progenetix
 
 The Beacon v2 protocol uses a REST path structure for consistant data access.
@@ -104,7 +118,7 @@ resource.
 
 The root path provides the standard `BeaconInfoResponse`.
 
-* [/](https://progenetix.org/beacon/)
+* [/](http://progenetix.org/beacon/)
 
 ----
 
@@ -112,13 +126,13 @@ The root path provides the standard `BeaconInfoResponse`.
 
 ##### `/filtering_terms/`
 
-* [/filtering_terms/](https://progenetix.org/beacon/filtering_terms/)
+* [/filtering_terms/](http://progenetix.org/beacon/filtering_terms/)
 
 
 ##### `/filtering_terms/` + query
 
-* [/filtering_terms/?filters=PMID](https://progenetix.org/beacon/filtering_terms/?filters=PMID)
-* [/filtering_terms/?filters=NCIT,icdom](https://progenetix.org/beacon/filtering_terms/?filters=NCIT,icdom)
+* [/filtering_terms/?filters=PMID](http://progenetix.org/beacon/filtering_terms/?filters=PMID)
+* [/filtering_terms/?filters=NCIT,icdom](http://progenetix.org/beacon/filtering_terms/?filters=NCIT,icdom)
 
 ----
 
@@ -126,7 +140,7 @@ The root path provides the standard `BeaconInfoResponse`.
 
 ##### `/biosamples/` + query
 
-* [/biosamples/?filters=cellosaurus:CVCL_0004](https://progenetix.org/beacon/biosamples/?filters=cellosaurus:CVCL_0004)
+* [/biosamples/?filters=cellosaurus:CVCL_0004](http://progenetix.org/beacon/biosamples/?filters=cellosaurus:CVCL_0004)
   - this example retrieves all biosamples having an annotation for the Cellosaurus _CVCL_0004_
   identifier (K562)
 
@@ -152,10 +166,10 @@ The root path provides the standard `BeaconInfoResponse`.
 
 ##### `/individuals/` + query
 
-* [/individuals/?filters=NCIT:C7541](https://progenetix.org/beacon/individuals/?filters=NCIT:C7541)
+* [/individuals/?filters=NCIT:C7541](http://progenetix.org/beacon/individuals/?filters=NCIT:C7541)
   - this example retrieves all individuals having an annotation associated with _NCIT:C7541_ (retinoblastoma)
   - in Progenetix, this particular code will be part of the annotation for the _biosample(s)_ associated with the returned individual
-* [/individuals/?filters=PATO:0020001,NCIT:C9291](https://progenetix.org/beacon/individuals/?filters=PATO:0020001,NCIT:C9291)
+* [/individuals/?filters=PATO:0020001,NCIT:C9291](http://progenetix.org/beacon/individuals/?filters=PATO:0020001,NCIT:C9291)
   - this query returns information about individuals with an anal carcinoma (**NCIT:C9291**) and a known male genotypic sex (**PATO:0020001**)
   - in Progenetix, the information about its sex is associated with the _Individual_ object (and rtherefore in the _individuals_ collection), whereas the information about the cancer type is a property of the _Biosample_ (and therefore stored in the _biosamples_ collection)
 
@@ -208,9 +222,18 @@ CNV statistics or binned genome calls.
 
 ##### `/analyses/` + query
 
-* [/analyses/?filters=cellosaurus:CVCL_0004](https://progenetix.org/beacon/analyses/?filters=cellosaurus:CVCL_0004)
+* [/analyses/?filters=cellosaurus:CVCL_0004](http://progenetix.org/beacon/analyses/?filters=cellosaurus:CVCL_0004)
   - this example retrieves all biosamples having an annotation for the Cellosaurus _CVCL_0004_
   identifier (K562)
+
+
+-------------------------------------------------------------------------------
+
+## `bycon` Beacon Server
+
+The [`bycon`](https://github.com/progenetix/bycon) project provides a combination of a Beacon-protocol based API with additional API services, used as backend and middleware for the Progenetix resource.
+
+`bycon` has been developed to support Beacon protocol development following earlier implementations of Beacon+ ("beaconPlus") with now deprected Perl libraries. The work tightly integrates with the [ELIXIR Beacon](http://beacon-project.io) project.
 
 
 

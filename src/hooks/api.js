@@ -16,13 +16,11 @@ export function useExtendedSWR(url, fetcher = defaultFetcher) {
 
 export const MAX_HISTO_SAMPLES = 4000
 export const PROGENETIXINFO = "https://info.progenetix.org"
-export const PROGENETIXDOCS = "https://docs.progenetix.org"
-export const ABOUTLINK = `${PROGENETIXINFO}/categories/about.html`
-export const DOCLINK = `${PROGENETIXDOCS}`
-export const NEWSLINK = `${PROGENETIXDOCS}/categories/news.html`
-export const USECASESLINK = `${PROGENETIXDOCS}/en/latest/use-cases.html`
+export const DOCLINK = "https://docs.progenetix.org"
+export const NEWSLINK = `${DOCLINK}/news`
+export const USECASESLINK = `${DOCLINK}/use-cases`
+export const SERVICEINFOLINK = `${DOCLINK}/services`
 export const THISYEAR = new Date().getFullYear()
-
 export const BIOKEYS = ["histologicalDiagnosis", "icdoMorphology", "icdoTopography", "sampledTissue"]
 
 export function useProgenetixApi(...args) {
@@ -77,10 +75,12 @@ export async function tryFetch(url, fallBack = "N/A") {
  * When param is null no query will be triggered.
  */
 
+// This Beacon query only retrieves the counts & handovers using a custom `output=handoversonly`
+// parameter, to avoid "double-loading" of the results.
 export function useBeaconQuery(queryData) {
   return useProgenetixApi(
     queryData
-      ? `${basePath}beacon/biosamples/?${buildQueryParameters(queryData)}`
+      ? `${basePath}beacon/biosamples/?includeHandovers=true&requestedGranularity=record&output=handoversonly&${buildQueryParameters(queryData)}`
       : null
   )
 }
@@ -104,8 +104,8 @@ export function mkGeoParams(geoCity, geodistanceKm) {
 
 export function mkGeneParams(gene) {
   if (!gene) return null
-  const geneSymbol = gene.data.symbol ?? []
-  return { geneSymbol }
+  const geneId = gene.data.symbol ?? []
+  return { geneId }
 }
 
 export function makeFilters({
@@ -145,7 +145,7 @@ export function buildQueryParameters(queryData) {
     materialtype,
     freeFilters,
     clinicalClasses,
-    geneSymbol,
+    geneId,
     geoCity,
     geodistanceKm,
     ...otherParams
@@ -178,7 +178,7 @@ export function buildQueryParameters(queryData) {
     sex,
     materialtype
   })
-  const geneParams = mkGeneParams(geneSymbol) ?? {}
+  const geneParams = mkGeneParams(geneId) ?? {}
   const geoParams = mkGeoParams(geoCity, geodistanceKm) ?? {}
   return new URLSearchParams(
     flattenParams([
@@ -224,6 +224,8 @@ export function usePublicationList({ geoCity, geodistanceKm }) {
   return useProgenetixApi(url)
 }
 
+// ,genomes:>0
+
 export function useProgenetixrefPublicationList({ geoCity, geodistanceKm }) {
   const geoParams = new URLSearchParams({
     ...mkGeoParams(geoCity, geodistanceKm),
@@ -249,35 +251,35 @@ export function ontologymapsPrefUrl({ prefixes, filters }) {
   return `${ontologymapsBaseUrl}filters=${prefixes},${filters}&filterPrecision=start`
 }
 
-export function useDataItemDelivery(id, collection, datasetIds) {
-  return useProgenetixApi(getDataItemUrl(id, collection, datasetIds))
+export function useDataItemDelivery(id, entity, datasetIds) {
+  return useProgenetixApi(getDataItemUrl(id, entity, datasetIds))
 }
 
-export function getDataItemUrl(id, collection, datasetIds) {
-  return `${basePath}beacon/${collection}/${id}/?datasetIds=${datasetIds}`
+export function getDataItemUrl(id, entity, datasetIds) {
+  return `${basePath}beacon/${entity}/${id}/?datasetIds=${datasetIds}`
 }
 
-export function useServiceItemDelivery(id, collection, datasetIds) {
-  return useProgenetixApi(getServiceItemUrl(id, collection, datasetIds))
+export function useServiceItemDelivery(id, entity, datasetIds) {
+  return useProgenetixApi(getServiceItemUrl(id, entity, datasetIds))
 }
 
 export function getServiceItemUrl(id, collection, datasetIds) {
   return `${basePath}services/${collection}?id=${id}&datasetIds=${datasetIds}`
 }
 
-export function getDataItemPageUrl(id, collection, datasetIds) {
-  return `${basePath}${collection}/?datasetIds=${datasetIds}&${
-    collection == "variants" ? "_id" : "id"
+export function getDataItemPageUrl(id, entity, datasetIds) {
+  return `${basePath}${entity}/?datasetIds=${datasetIds}&${
+    entity == "variants" ? "_id" : "id"
   }=${id}`
 }
 
-export function NoResultsHelp(id, collection) {
-  const url = getDataItemPageUrl(id, collection, "progenetix")
+export function NoResultsHelp(id, entity) {
+  const url = getDataItemPageUrl(id, entity, "progenetix")
   return (
     <div className="notification is-size-5">
       This page will only show content if called with a specific biosample ID
       which already exists in the Progenetix or arrayMap{" "}
-      <strong>{collection}</strong> database, e.g. <a href={url}>{url}</a>.
+      <strong>{entity}</strong> database, e.g. <a href={url}>{url}</a>.
     </div>
   )
 }
@@ -344,8 +346,8 @@ export function useGeoCity({ city }) {
   return useProgenetixApi(url)
 }
 
-export function useGeneSymbol({ geneSymbol }) {
-  const url = geneSymbol ? `${basePath}services/genespans/?geneSymbol=${geneSymbol}&filterPrecision=start&method=genespan` :null
+export function useGeneSymbol({ geneId }) {
+  const url = geneId ? `${basePath}services/genespans/?geneId=${geneId}&filterPrecision=start&method=genespan` :null
   return useProgenetixApi(url)
 }
 
@@ -384,7 +386,7 @@ export function referenceLink(externalReference) {
       externalReference.id.replace("cellosaurus:", "")
     )
   } else if (externalReference.id.includes("PMID:")) {
-    return "/publications/details?id=" + externalReference.id
+    return "/publication/?id=" + externalReference.id
   } else if (externalReference.id.includes("geo:")) {
     return (
       "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=" +
@@ -521,13 +523,6 @@ export function replaceWithProxy(
   if (!url) return false
   if (!useProxyOpt) return url
   return url.toString().replace(new URL(url).origin + "/", basePathOpt)
-}
-
-export const HANDOVER_IDS = {
-  cnvhistogram: "pgx:handover:cnvhistogram",
-  biosamples: "pgx:handover:biosamples",
-  variants: "pgx:handover:variants",
-  variantsinterpretations: "pgx:handover:variantsinterpretations"
 }
 
 export function epmcId(publicationId) {
